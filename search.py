@@ -21,7 +21,8 @@ for app in service.apps:
     print app.name
 #search events, logs
 kwargs_normalsearch = {"exec_mode": "normal"} #specify mode 'normal, blocking etc
-searchquery_normal = 'search sourcetype=access_combined_wcookie "/flower_store/category.screen"  host="nik-PC" 500'
+#search for 500 Internal server error, with source type and specific url
+searchquery_normal = 'search sourcetype=access_combined_wcookie "/flower_store/category.screen"  host="nik-PC" 500' 
 job = service.jobs.create(searchquery_normal, **kwargs_normalsearch)
 print "Search job properties"
 print "Search job ID:        ", job["sid"]
